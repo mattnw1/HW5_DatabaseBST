@@ -1,7 +1,7 @@
 #include "Person.h"
 
 using namespace std;
-// Employee publicly inherits from Person
+// Student publicly inherits from Person
 class Student: public Person
 {
   public:

@@ -29,5 +29,10 @@ int main(int argc, char const *argv[])
    cout << "-----------------------------------------------------------" << endl;
    student1->getInfo();
 
+   BST<Student> *PersonTree = new BST<Student>();
+
+   PersonTree->insert(*student1);
+
+
   return 0;
 }
