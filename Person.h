@@ -4,6 +4,7 @@ using namespace std;
 class Person
 {
   public:
+    Person();
     Person(string name, int idNum , string levelF);
     ~Person();
     string getName();
@@ -12,7 +13,7 @@ class Person
     string getInfo();
 
 
-  private:
+  protected:
     string name;
     int IDnumber;
     string levelField;

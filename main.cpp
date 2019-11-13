@@ -1,5 +1,5 @@
 #include "BST.h"
-#include "Person.h"
+#include "Student.h"
 
 using namespace std;
 
@@ -25,7 +25,9 @@ int main(int argc, char const *argv[])
    cout << "testID" << test1->getID() << endl;
    cout << "testLevel" << test1->getLevelField() << endl;
 
-
+   Student *student1 = new Student("John Appleseed", 1738, "Senior", "Chemical Engineering", 3.455, 1111);
+   cout << "-----------------------------------------------------------" << endl;
+   student1->getInfo();
 
   return 0;
 }

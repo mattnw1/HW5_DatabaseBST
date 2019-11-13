@@ -1,6 +1,11 @@
 #include "Person.h"
 
-
+  Person::Person()
+  {
+    name = " ";
+    IDnumber = 0;
+    levelField = " ";
+  }
 
   Person::Person(string personName, int idNum , string levelF)
   {
