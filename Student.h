@@ -6,7 +6,7 @@ class Student: public Person
 {
   public:
     Student();
-    Student(string name, int idNum , string levelF, string major, double gradepoint, int advisor);
+    Student(string studname, int idNum , string levelF, string major, double gradepoint, int advisor);
     ~Student();
     string getMajor();
     double getGPA();

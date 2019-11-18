@@ -11,7 +11,7 @@ class BST
     ~BST();
 
     bool search(T value); //search that returns bool if the value is there or not
-    void insert(T value);
+    virtual void insert(T value);
 
     // Delete placeholder
     bool deleteNode(T key);
