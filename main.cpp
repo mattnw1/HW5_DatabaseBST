@@ -39,17 +39,13 @@ int main(int argc, char const *argv[])
    cout << "Print Student Tree" << endl;
    StudentTree->printTree();
 
+   cout << "-----------------------------------------------------------" << endl;
    Faculty *faculty1 = new Faculty("Steve Jobs", 2000, "President", "Fowler School of Engineering");
    PersonBST<Faculty> *FacultyTree = new PersonBST<Faculty>();
    FacultyTree->insert(10, faculty1);
    faculty1->addStudent(1111);
    cout << "Print Faculty Tree" << endl;
    FacultyTree->printTree();
-
-
-
-
-
 
 
   return 0;
