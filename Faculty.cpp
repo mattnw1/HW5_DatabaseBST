@@ -6,7 +6,7 @@ Faculty::Faculty()
   IDnumber = 0;
   levelField = " ";
   department = " ";
-  DoublyLinkedList<int> *studentIDs;
+  studentIDs = new DoublyLinkedList<int>();
 }
 Faculty::Faculty(string facName, int idNum , string levelF, string depart)
 {
@@ -14,7 +14,7 @@ Faculty::Faculty(string facName, int idNum , string levelF, string depart)
   IDnumber = idNum;
   levelField = levelF;
   department = depart;
-  DoublyLinkedList<int> *studentIDs;
+  studentIDs = new DoublyLinkedList<int>();
 }
 
 Faculty::~Faculty()
