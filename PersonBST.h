@@ -1,5 +1,6 @@
 #include "PersonTreeNode.h"
 #include "Student.h"
+#include "Faculty.h"
 #include <iostream>
 
 using namespace std;
@@ -156,7 +157,7 @@ Student PersonBST<T>::search(int k)
 {
   if(root == NULL)
   {
-    return NULL; // empty tree
+    return root->value; // empty tree
   }
 
   else //tree no empty, lets search
@@ -173,7 +174,7 @@ Student PersonBST<T>::search(int k)
 
       if (current == NULL) //we didnt find the value
         cout << "Student not found" << endl;
-        return NULL; // what to do here
+        return current->value; // what to do here
     }
 
     return current->value;
