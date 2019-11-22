@@ -44,6 +44,7 @@ int main(int argc, char const *argv[])
    PersonBST<Faculty> *FacultyTree = new PersonBST<Faculty>();
    FacultyTree->insert(10, faculty1);
    faculty1->addStudent(1111);
+   faculty1->addStudent(1212);
    cout << "Print Faculty Tree" << endl;
    FacultyTree->printTree();
 

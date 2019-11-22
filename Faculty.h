@@ -15,6 +15,7 @@ class Faculty: public Person
     ~Faculty();
 
     void addStudent(int studID);
+    // void removeStudent()
     string getDepartment();
     void getStudentIDs();
     void getInfo();
