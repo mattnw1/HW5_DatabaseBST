@@ -52,6 +52,20 @@ void Simulation::run(){
     printStudentsAdivsor(1738);
     cout << "print advisors students----------\n";
     printAdvisorsStudents(2000);
+    // addStudent();
+    // cout << endl;
+    // cout << "NEW STUDENT ADDED" << endl;
+    // printAllStudents();
+    //
+    // cout << "delete student\n";
+    // deleteStudent(1738);
+    // printAllStudents();
+    addFaculty();
+    cout << endl;
+    cout << "NEW Faculty ADDED" << endl;
+    printAllFaculty();
+
+
 
 
 }
@@ -88,35 +102,61 @@ void Simulation::printAdvisorsStudents(int facID)
 }
 void Simulation::addStudent() // HANDLE USER ERROR!!!!!!
 {
-    // string studname;
-    // int idNum;
-    // string levelF;
-    // string maj;
-    // double gradepoint;
-    // int advisor
-    //
-    // cout << "Enter student name: ";
-    // cin >> studName;
-    // cout << "Enter student ID Number: ";
-    // cin >> idNum;
-    // cout << "Enter year: ";
-    // cin >> levelF;
-    // cout << "Enter your major: ";
-    // cin >> maj;
-    // cout << "Enter your GPA: ";
-    // cin >> gradepoint;
-    // cout << "Enter your advisor's id: ";
-    // cin >> advisor;
-    // if(advisor)
+    string studName;
+    int idNum;
+    string levelF;
+    string maj;
+    double gradepoint;
+    int advisor;
+
+    cout << "Enter student name: ";
+    getline(cin, studName);
+    cout << "Enter student ID Number: ";
+    cin >> idNum;
+    cout << "Enter year: ";
+    cin >> levelF;
+    cin.ignore(1024, '\n');
+    cout << "Enter your major: ";
+    getline(cin, maj);
+    cout << "Enter your GPA: ";
+    cin >> gradepoint;
+    cout << "Enter your advisor's id: ";
+    cin >> advisor;
+    if(findFaculty(advisor) == NULL){
+        cout << "This advisor does not exist, make sure you enter the proper advisor ID\n";
+    }
+    else{
+        Student *s = new Student(studName, idNum, levelF, maj, gradepoint, advisor);
+        studentBST->insert(s->getID(), s);
+    }
 }
-// void deleteStudent(int studID)
-// {
-//
-// }
-// // void addFaculty()
-// {
-//
-// }
+void Simulation::deleteStudent(int studID)
+{
+    if(findStudent(studID) == NULL)
+        cout << "That student ID does not exist\n";
+    else
+        studentBST->deleteNode(studID);
+}
+void Simulation::addFaculty()
+{
+    string facName;
+    int idNum;
+    string levelF;
+    string depart;
+    cout << "Enter Faculty name: ";
+    getline(cin, facName);
+    cout << "Enter faculty ID Number: ";
+    cin >> idNum;
+    cin.ignore(1024, '\n');
+    cout << "Enter level of faculty: ";
+    cin >> levelF;
+    cin.ignore(1024, '\n');
+    cout << "Enter their department: ";
+    getline(cin, depart);
+    Faculty *f = new Faculty(facName, idNum, levelF, depart);
+    facultyBST->insert(f->getID(), f);
+
+}
 // // void deleteFaculty()
 // {
 //

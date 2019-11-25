@@ -7,7 +7,7 @@
     levelField = " ";
   }
 
-  Person::Person(string personName, int idNum , string levelF)
+  Person::Person(string personName, int idNum , string levelF) 
   {
     name = personName;
     IDnumber = idNum;

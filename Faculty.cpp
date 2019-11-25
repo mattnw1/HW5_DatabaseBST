@@ -8,7 +8,7 @@ Faculty::Faculty()
   department = " ";
   studentIDs = new DoublyLinkedList<int>();
 }
-Faculty::Faculty(string facName, int idNum , string levelF, string depart)
+Faculty::Faculty(string facName, int idNum , string levelF, string depart) //fix with inheritance
 {
   name = facName;
   IDnumber = idNum;

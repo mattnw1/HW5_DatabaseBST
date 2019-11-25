@@ -9,7 +9,7 @@ Student::Student()
   gpa = 0.0;
   advisorID = 0;
 }
-Student::Student(string studname, int idNum , string levelF, string maj, double gradepoint, int advisor)
+Student::Student(string studname, int idNum , string levelF, string maj, double gradepoint, int advisor) //fx with inheritance
 {
   name = studname;
   IDnumber = idNum;

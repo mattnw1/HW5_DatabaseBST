@@ -174,7 +174,7 @@ T* PersonBST<T>::search(int k)
 
       if (current == NULL) //we didnt find the value
         cout << "Person not found" << endl;
-        return current->value; // what to do here
+        return NULL; // what to do here
     }
 
     return current->value;
