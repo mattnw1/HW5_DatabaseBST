@@ -1,6 +1,6 @@
 #include "PersonTreeNode.h"
-#include "Student.h"
-#include "Faculty.h"
+// #include "Student.h"
+// #include "Faculty.h"
 #include <iostream>
 
 using namespace std;
@@ -15,7 +15,7 @@ class PersonBST
     ~PersonBST();
     PersonTreeNode<T> *root; //
 
-    Student search(int k); //search that returns bool if the value is there or not
+    T* search(int k); //search that returns bool if the value is there or not
     void insert(int k, T *v);
 
     // Delete placeholder
@@ -153,7 +153,7 @@ void PersonBST<T>::insert(int k, T *v)
 }
 
 template <class T>
-Student PersonBST<T>::search(int k)
+T* PersonBST<T>::search(int k)
 {
   if(root == NULL)
   {
@@ -173,7 +173,7 @@ Student PersonBST<T>::search(int k)
         current = current->right;
 
       if (current == NULL) //we didnt find the value
-        cout << "Student not found" << endl;
+        cout << "Person not found" << endl;
         return current->value; // what to do here
     }
 

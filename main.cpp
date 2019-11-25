@@ -1,6 +1,10 @@
-#include "BST.h"
-#include "PersonBST.h"
+
+// #include "PersonBST.h"
+// #include "Student.h"
+// #include "Faculty.h"
+// #include "Person.h"
 #include "Simulation.h"
+
 
 
 
@@ -27,26 +31,30 @@ int main(int argc, char const *argv[])
   //  cout << "testID" << test1->getID() << endl;
   //  cout << "testLevel" << test1->getLevelField() << endl;
 
-   Student *student1 = new Student("John Appleseed", 1738, "Senior", "Chemical Engineering", 3.455, 1111);
-   cout << "-----------------------------------------------------------" << endl;
-   student1->getInfo();
-   cout << "Above is a test of Student Class Methods" << endl;
-   cout << "-----------------------------------------------------------" << endl;
+   // Student *student1 = new Student("John Appleseed", 1738, "Senior", "Chemical Engineering", 3.455, 1111);
+   // cout << "-----------------------------------------------------------" << endl;
+   // student1->getInfo();
+   // cout << "Above is a test of Student Class Methods" << endl;
+   // cout << "-----------------------------------------------------------" << endl;
+   //
+   //
+   // PersonBST<Student> *StudentTree = new PersonBST<Student>();
+   // StudentTree->insert(student1->getID(), student1);
+   // cout << "Print Student Tree" << endl;
+   // StudentTree->printTree();
+   //
+   // cout << "-----------------------------------------------------------" << endl;
+   // Faculty *faculty1 = new Faculty("Steve Jobs", 2000, "President", "Fowler School of Engineering");
+   // PersonBST<Faculty> *FacultyTree = new PersonBST<Faculty>();
+   // FacultyTree->insert(10, faculty1);
+   // faculty1->addStudent(1111);
+   // faculty1->addStudent(1212);
+   // cout << "Print Faculty Tree" << endl;
+   // FacultyTree->printTree();
 
+    Simulation mySim;
+    mySim.run();
 
-   PersonBST<Student> *StudentTree = new PersonBST<Student>();
-   StudentTree->insert(55, student1);
-   cout << "Print Student Tree" << endl;
-   StudentTree->printTree();
-
-   cout << "-----------------------------------------------------------" << endl;
-   Faculty *faculty1 = new Faculty("Steve Jobs", 2000, "President", "Fowler School of Engineering");
-   PersonBST<Faculty> *FacultyTree = new PersonBST<Faculty>();
-   FacultyTree->insert(10, faculty1);
-   faculty1->addStudent(1111);
-   faculty1->addStudent(1212);
-   cout << "Print Faculty Tree" << endl;
-   FacultyTree->printTree();
 
 
   return 0;
