@@ -14,6 +14,7 @@ class Student: public Person
     double getGPA();
     int getAdvisorID();
     void getInfo();
+    void setAdvisor(int facID);
 
 
   private:

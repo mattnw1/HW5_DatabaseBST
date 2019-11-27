@@ -46,3 +46,8 @@ void Faculty::getInfo()
   cout << "Department: " << getDepartment() << endl;
   cout << "Students Advising: "; getStudentIDs();
 }
+
+void Faculty::removeFacultyAdvisee(int studID)
+{
+    studentIDs->remove(studID);
+}

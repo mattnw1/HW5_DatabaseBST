@@ -19,6 +19,7 @@ class Faculty: public Person
     string getDepartment();
     void getStudentIDs();
     void getInfo();
+    void removeFacultyAdvisee(int studID);
 
 
   private:

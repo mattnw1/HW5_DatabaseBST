@@ -157,7 +157,7 @@ T* PersonBST<T>::search(int k)
 {
   if(root == NULL)
   {
-    return root->value; // empty tree
+    return NULL; // empty tree
   }
 
   else //tree no empty, lets search
@@ -172,11 +172,11 @@ T* PersonBST<T>::search(int k)
       else
         current = current->right;
 
-      if (current == NULL) //we didnt find the value
+      if (current == NULL) {//we didnt find the value
         cout << "Person not found" << endl;
         return NULL; // what to do here
+     }
     }
-
     return current->value;
     }
 }

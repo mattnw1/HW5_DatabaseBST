@@ -37,6 +37,10 @@ int Student::getAdvisorID()
   return advisorID;
 }
 
+void Student::setAdvisor(int facID){
+    advisorID = facID;
+}
+
 
 void Student::getInfo()
 {
