@@ -1,3 +1,10 @@
+// /*Michael Kulinich
+// 2328386
+// kulinich@chapman.edu
+// Matthew Nwerem
+// 2277158
+// nwere100@mail.chapman.edu
+
 #include "Faculty.h"
 
 Faculty::Faculty()

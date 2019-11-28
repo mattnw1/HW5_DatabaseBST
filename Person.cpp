@@ -1,3 +1,10 @@
+// /*Michael Kulinich
+// 2328386
+// kulinich@chapman.edu
+// Matthew Nwerem
+// 2277158
+// nwere100@mail.chapman.edu
+
 #include "Person.h"
 
   Person::Person()
@@ -7,7 +14,7 @@
     levelField = " ";
   }
 
-  Person::Person(string personName, int idNum , string levelF) 
+  Person::Person(string personName, int idNum , string levelF)
   {
     name = personName;
     IDnumber = idNum;
