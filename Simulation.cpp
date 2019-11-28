@@ -10,7 +10,7 @@ Simulation::Simulation(PersonBST<Student> *s, PersonBST<Faculty> *f)
 {
     studentBST = s;
     facultyBST = f;
-    historyStack = new GenStack<DBHistory<Student>>(10);
+    historyStack = new GenStack<DBHistory<Student> >(10);
 
 }
 Simulation::~Simulation()
@@ -149,7 +149,8 @@ void Simulation::run(){
             break;
         case 13:
         case 14:
-            cout << "Nice" << endl;
+            cout << "Exiting..." << endl;
+            exit(1);
             break;
     }
     cin.clear();

@@ -37,7 +37,7 @@ class Simulation
     private:
         PersonBST<Student> *studentBST;
         PersonBST<Faculty> *facultyBST;
-        GenStack<DBHistory<Student>> *historyStack;
+        GenStack<DBHistory<Student> > *historyStack;
 
 
 };
