@@ -1,3 +1,8 @@
+#ifndef DOUBLYLISTNODE_H
+#define DOUBLYLISTNODE_H
+
+
+
 #include <iostream>
 
 using namespace std;
@@ -33,3 +38,5 @@ DoublyListNode<T>::~DoublyListNode()
   prev = NULL;
 
 }
+
+#endif

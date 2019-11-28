@@ -1,3 +1,5 @@
+#ifndef PERSONBST_H
+#define PERSONBST_H
 #include "PersonTreeNode.h"
 // #include "Student.h"
 // #include "Faculty.h"
@@ -30,6 +32,7 @@ class PersonBST
     void recursivePrint(PersonTreeNode<T> *node);
     void RemoveSubtree(PersonTreeNode<T> *node);
 };
+
 
 template <class T>
 PersonBST<T>::PersonBST()
@@ -335,3 +338,5 @@ void PersonBST<T>::RemoveSubtree(PersonTreeNode<T> *node)
     delete node;
   }
 }
+
+#endif

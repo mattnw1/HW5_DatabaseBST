@@ -21,13 +21,157 @@ Simulation::~Simulation()
 
 void Simulation::run(){
 
+    int choice;
+    int facId;
+    int studId;
+    while(true){
 
-    Student *student1 = new Student("John Appleseed", 1738, "Senior", "Chemical Engineering", 3.455, 2000);
-    cout << "-----------------------------------------------------------" << endl;
-    cout << student1->getName() << endl;
-    cout << "Above is a test of Student Class Methods" << endl;
-    cout << "-----------------------------------------------------------" << endl;
-    Student *student2 = new Student("John Appleseed", 1738, "Senior", "Chemical Engineering", 3.455, 2000);
+    cout << "What would you like to do (Pick a number)" << endl;
+    cout << "1. Print all students and their information (sorted by ascending id #)" << endl;
+    cout << "2. Print all faculty and their information (sorted by ascending id #)" << endl;
+    cout << "3. Find and display student information given the students id" << endl;
+    cout << "4. Find and display faculty information given the faculty id" << endl;
+    cout << "5. Given a student’s id, print the name and info of their faculty advisor" << endl;
+    cout << "6. Given a faculty id, print info of his/her advisees" << endl;
+    cout << "7. Add a new student" << endl;
+    cout << "8. Delete a student given the id" << endl;
+    cout << "9. Add a new faculty member" << endl;
+    cout << "10. Delete a faculty member given the id" << endl;
+    cout << "11. Change a student’s advisor given the student id and the new faculty id" << endl;
+    cout << "12. Remove an advisee from a faculty member given the ids" << endl;
+    cout << "13. Rollback" << endl;
+    cout << "14. Exit" << endl;
+
+    cin >> choice;
+    switch(choice){
+        case 1:
+            printAllStudents();
+            break;
+        case 2:
+            printAllFaculty();
+            break;
+        case 3:
+            cout << "What student are you looking for?" << endl;
+            cout << "Type the student ID" << endl;
+            cin >> studId;
+            if(studentBST->search(studId)==NULL){
+                cout << "No student has the ID number in system" << endl;
+            }
+            else{
+                findStudent(studId)->getInfo();
+            }
+            cout << endl;
+            break;
+        case 4:
+            cout << "What Faculty are you looking for?" << endl;
+            cout << "Type the faculty ID" << endl;
+            cin >> facId;
+            if(facultyBST->search(facId)==NULL){
+                cout << "No faculty has the ID number in system" << endl;
+            }
+            else{
+                findFaculty(facId)->getInfo();
+            }
+            cout << endl;
+            break;
+        case 5:
+            cout << "Whos student advisors are you looking for?" << endl;
+            cout << "Type the student ID" << endl;
+            cin >> studId;
+            if(studentBST->search(studId)==NULL){
+                cout << "No student has the ID number in system" << endl;
+            }
+            else{
+                printStudentsAdvisor(studId);
+            }
+            cout << endl;
+            break;
+        case 6:
+            cout << "Whos faculty advisees are you looking for?" << endl;
+            cout << "Type the faculty ID" << endl;
+            cin >> facId;
+            if(facultyBST->search(facId)==NULL){
+                cout << "No faculty has the ID number in system" << endl;
+            }
+            else{
+                printAdvisorsStudents(facId);
+            }
+            cout << endl;
+            break;
+        case 7:
+            addStudent();
+            break;
+        case 8:
+            cout << "What student are you looking for to delete?" << endl;
+            cout << "Type the student ID" << endl;
+            cin >> studId;
+            if(studentBST->search(studId)==NULL){
+                cout << "No student has the ID number in system" << endl;
+            }
+            else{
+                deleteStudent(studId);
+            }
+            cout << endl;
+            break;
+        case 9:
+            addFaculty();
+            break;
+        case 10:
+            cout << "What Faculty are you looking for to delete?" << endl;
+            cout << "Type the faculty ID" << endl;
+            cin >> facId;
+            if(facultyBST->search(facId)==NULL){
+                cout << "No faculty has the ID number in system" << endl;
+            }
+            else{
+                deleteFaculty(facId);
+            }
+            cout << endl;
+            break;
+        case 11:
+            cout << "What student are you looking for?" << endl;
+            cout << "Type the student ID" << endl;
+            cin >> studId;
+            cout << "What Faculty are you looking for?" << endl;
+            cout << "Type the faculty ID" << endl;
+            cin >> facId;
+
+            changeStudentsAdvisor(studId, facId);
+            break;
+        case 12:
+            cout << "What student are you looking for?" << endl;
+            cout << "Type the student ID" << endl;
+            cin >> studId;
+            cout << "What Faculty are you looking for?" << endl;
+            cout << "Type the faculty ID" << endl;
+            cin >> facId;
+            removeAdvisee(studId, facId);
+            break;
+        case 13:
+        case 14:
+            cout << "Nice" << endl;
+            break;
+    }
+    cin.clear();
+    cin.ignore();
+    cout << "Press Enter to Continue...\n" << endl;
+    getchar();
+}
+
+
+
+
+
+
+
+
+
+    //
+    // cout << "-----------------------------------------------------------" << endl;
+    // cout << student1->getName() << endl;
+    // cout << "Above is a test of Student Class Methods" << endl;
+    // cout << "-----------------------------------------------------------" << endl;
+    // Student *student2 = new Student("John Appleseed", 1738, "Senior", "Chemical Engineering", 3.455, 2000);
 
 
 //TEST FOR ROLL BACK
@@ -36,11 +180,11 @@ void Simulation::run(){
 
 
 
-
+    //
     // DBHistory<Student> *added = new DBHistory<Student>(student1, false);
     // stack<DBHistory<Student>*> *s = new stack<DBHistory<Student>*>;
     // s->push(added);
-    // s->top()->getPerson()->getInfo();
+    // cout << s->top()->getPerson()->getName() << endl;;
 
 
 
@@ -50,33 +194,32 @@ void Simulation::run(){
 
 
 
-    // studentBST = new PersonBST<Student>();
-    // studentBST->insert(student1->getID(), student1);
 
-    cout << "-----------------------------------------------------------" << endl;
-    Faculty *faculty1 = new Faculty("Steve Jobs", 2000, "President", "Fowler School of Engineering");
-    Faculty *faculty2 = new Faculty("Steve", 69, "Pres", "Fowler");
-    Faculty *faculty3 = new Faculty("Mark twain", 9, "Pres", "Fowler");
 
-    faculty1->addStudent(1738);
-    faculty1->addStudent(10);
-        faculty1->addStudent(17);
-    facultyBST = new PersonBST<Faculty>();
-    facultyBST->insert(faculty2->getID(), faculty2);
-    facultyBST->insert(faculty1->getID(), faculty1);
-    facultyBST->insert(faculty3->getID(), faculty3);
+    // cout << "-----------------------------------------------------------" << endl;
+    // Faculty *faculty1 = new Faculty("Steve Jobs", 2000, "President", "Fowler School of Engineering");
+    // Faculty *faculty2 = new Faculty("Steve", 69, "Pres", "Fowler");
+    // Faculty *faculty3 = new Faculty("Mark twain", 9, "Pres", "Fowler");
+    //
+    // faculty1->addStudent(1738);
+    // faculty1->addStudent(10);
+    //     faculty1->addStudent(17);
+    // facultyBST = new PersonBST<Faculty>();
+    // facultyBST->insert(faculty2->getID(), faculty2);
+    // facultyBST->insert(faculty1->getID(), faculty1);
+    // facultyBST->insert(faculty3->getID(), faculty3);
 
 
 
 
     // cout << endl;
     // cout << endl;
-    // cout << "Print all students-------------------\n";
-    // printAllStudents();
-    // cout << "Print all faculty-------------------\n";
+    cout << "Print all students-------------------\n";
+    printAllStudents();
+    cout << "Print all faculty-------------------\n";
     // cout << endl;
     // cout << endl;
-    // printAllFaculty();
+    printAllFaculty();
     // cout << "Find Student -----------\n";
     // findStudent(1738)->getInfo();
     // cout << "Find faculty -----------\n";
@@ -121,13 +264,23 @@ void Simulation::run(){
 
 void Simulation::printAllStudents()
 {
-  studentBST->printTree();
+    if(!studentBST->isEmpty()){
+        studentBST->printTree();
+    }
+    else{
+        cout << "There are no students" << endl;
+    }
 }
 
 
 void Simulation::printAllFaculty()
 {
-    facultyBST->printTree();
+    if(!facultyBST->isEmpty()){
+        facultyBST->printTree();
+    }
+    else{
+        cout << "There are no faculty" << endl;
+    }
 }
 
 
@@ -139,9 +292,9 @@ Faculty* Simulation::findFaculty(int idNum)
 {
     return facultyBST->search(idNum);
 }
-void Simulation::printStudentsAdivsor(int studID)
+void Simulation::printStudentsAdvisor(int studID)
 {
-    cout << studentBST->search(studID)->getAdvisorID() << endl;
+    facultyBST->search(studentBST->search(studID)->getAdvisorID())->getInfo();
 }
 void Simulation::printAdvisorsStudents(int facID)
 {
@@ -155,7 +308,8 @@ void Simulation::addStudent() // HANDLE USER ERROR!!!!!!
     string maj;
     double gradepoint;
     int advisor;
-
+    cin.clear();
+    cin.ignore();
     cout << "Enter student name: ";
     getline(cin, studName);
     cout << "Enter student ID Number: ";
@@ -173,12 +327,9 @@ void Simulation::addStudent() // HANDLE USER ERROR!!!!!!
         cout << "This advisor does not exist, make sure you enter the proper advisor ID\n";
     }
     else{
-        // Student *s = new Student(studName, idNum, levelF, maj, gradepoint, advisor);
-        // studentBST->insert(s->getID(), s);
-        // DBHistory<Person> *added = new DBHistory<Person>(s, false);
-        // cout << "Check 1\n";
-        // historyStack->push(added);
-        // cout << "Check 2\n";
+        Student *s = new Student(studName, idNum, levelF, maj, gradepoint, advisor);
+        studentBST->insert(s->getID(), s);
+        facultyBST->search(advisor)->addStudent(idNum);
     }
 }
 void Simulation::deleteStudent(int studID)
@@ -186,6 +337,7 @@ void Simulation::deleteStudent(int studID)
     if(findStudent(studID) == NULL)
         cout << "That student ID does not exist\n";
     else
+        removeAdvisee(studID, studentBST->search(studID)->getAdvisorID());
         studentBST->deleteNode(studID);
 }
 void Simulation::addFaculty()
@@ -194,6 +346,8 @@ void Simulation::addFaculty()
     int idNum;
     string levelF;
     string depart;
+    cin.clear();
+    cin.ignore();
     cout << "Enter Faculty name: ";
     getline(cin, facName);
     cout << "Enter faculty ID Number: ";
@@ -214,6 +368,7 @@ void Simulation::deleteFaculty(int facID) // see if it will delete faculty you j
         cout << "That faculty ID does not exist\n";
     else
         facultyBST->deleteNode(facID);
+        //need to change all the students advisor away from this faculty
 }
 void Simulation::changeStudentsAdvisor(int studID, int facID)
 {
@@ -248,11 +403,11 @@ void Simulation::removeAdvisee(int studID, int facID)
 // {
 //
 // }
-// void exitProgram()
-// {
-//
-// }
-//
+void exitProgram()
+{
+
+}
+
 // // Serialize()
 // {
 //

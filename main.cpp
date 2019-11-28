@@ -1,8 +1,8 @@
 
-// #include "PersonBST.h"
-// #include "Student.h"
-// #include "Faculty.h"
-// #include "Person.h"
+#include "PersonBST.h"
+#include "Student.h"
+#include "Faculty.h"
+#include "Person.h"
 #include "Simulation.h"
 
 
@@ -51,9 +51,26 @@ int main(int argc, char const *argv[])
    // faculty1->addStudent(1212);
    // cout << "Print Faculty Tree" << endl;
    // FacultyTree->printTree();
+   Student *student1 = new Student("John Appleseed", 1738, "Senior", "Chemical Engineering", 3.455, 2000);
+   PersonBST<Student> *students = new PersonBST<Student>();
+   students->insert(student1->getID(), student1);
 
-    Simulation mySim;
-    mySim.run();
+   Faculty *faculty1 = new Faculty("Steve Jobs", 2000, "President", "Fowler School of Engineering");
+   faculty1->addStudent(1738);
+   PersonBST<Faculty> *facultys = new PersonBST<Faculty>();
+   facultys->insert(faculty1->getID(), faculty1);
+
+
+
+
+
+
+
+
+
+
+     Simulation mySim(students, facultys);
+     mySim.run();
 
 
 

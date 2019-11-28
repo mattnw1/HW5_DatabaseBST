@@ -1,3 +1,8 @@
+#ifndef DOUBLYLINKEDLIST_H
+#define DOUBLYLINKEDLIST_H
+
+
+
 #include "DoublyListNode.h"
 #include <iostream>
 
@@ -262,6 +267,7 @@ bool DoublyLinkedList<T>::isEmpty()
     return (size == 0);
 }
 
+#endif
 
 //
 // int DoublyLinkedList<T>::deletePos(int pos){ // find the index and remove

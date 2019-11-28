@@ -23,7 +23,7 @@ class Simulation
         void printAllFaculty();
         Student* findStudent(int idNum);
         Faculty* findFaculty(int idNum);
-        void printStudentsAdivsor(int studID);
+        void printStudentsAdvisor(int studID);
         void printAdvisorsStudents(int facID);
         void addStudent();
         void deleteStudent(int studID);
@@ -32,7 +32,7 @@ class Simulation
         void changeStudentsAdvisor(int studID, int facID);
         void removeAdvisee(int studID, int facID);
 //   // Rollback();
-//   void exitProgram();
+        void exitProgram();
   // Serialize();
     private:
         PersonBST<Student> *studentBST;
